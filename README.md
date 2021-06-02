@@ -1,6 +1,6 @@
 ### API REST - padrão Repositories
 
-## Sobre:
+### Sobre:
 
 - Projeto desenvolvido em Node.js, com Express, MySQL, biblioteca MomentJS para validação de datas
 - API REST com CRUD, implementa upload de imagens com Stream, busca dados em uma outra API interna com axios
@@ -11,7 +11,7 @@
 3. "models" >  chama o repositório e seus métodos, possui as regras de negócio da aplicação
 4. "controller" > chama o model e recebe o erro ou resultado para responder ao client
 
-## Como executar:
+### Como executar:
 
 1. No terminal, clonar o projeto: `git clone https://github.com/malufell/api-rest-repositories.git`
 2. Entrar na pasta do projeto: `cd api-rest-repositories`
