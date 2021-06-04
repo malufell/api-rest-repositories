@@ -19,6 +19,10 @@ Pré-requisitos: instalação do node.js e mySQL.
 2. Entrar na pasta do projeto: `cd api-rest-repositories`
 3. Instalar as dependências: `npm install`
 4. Configurar o banco de dados MySQL, arquivo "infraestrutura/database/conexao.js"
+5. Iniciar a aplicação: `npm start`
+6. Acessar API interna que faz a geração de dados fictícios: abrir outra aba no terminal, acessar a pasta `cd services`
+7. Rodar o comando `node clientes.js` para iniciar o servidor da API interna
+8. Utilizar o Postman (ou similares) para envio das requisições http: GET, POST, PATCH, DELETE (rotas estão na pasta "controllers").
 
 
 
