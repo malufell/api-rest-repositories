@@ -1,7 +1,5 @@
-//importando o módulo
 const mysql = require("mysql");
 
-//informações necessárias para criação da conexão com o banco de dados
 const conexao = mysql.createConnection({
     host: "localhost",
     port: 3306,

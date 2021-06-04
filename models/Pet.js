@@ -1,30 +1,20 @@
-const conexao = require("../infraestrutura/conexao");
-const uploadDeArquivo = require("../arquivos/upload");
+const uploadDeArquivo = require("../infraestrutura/arquivos/upload");
+const repositorio = require("../repositories/pet");
 
 class Pet {
-  adiciona(pet, res) {
-    const query = "INSERT INTO Pets SET ?";
-
-    uploadDeArquivo(pet.imagem, pet.nome, (erro, novoCaminho) => {
-      if (erro) {
-        res.status(400).json({ erro });
-
-      } else {
-        const novoPet = { nome: pet.nome, imagem: novoCaminho };
-        conexao.query(query, novoPet, (erro) => {
-
-          if (erro) {
-            console.log(erro);
-            res.status(400).json(erro);
-
-          } else {
-            console.log("registro criado!");
-            res.status(200).json(novoPet);
-          }
-        });
-      }
+  adiciona(pet) {
+    return new Promise((resolve, reject) => {
+      uploadDeArquivo(pet.nome, pet.imagem, (erro, novoCaminho) => {
+        if (erro) {
+          reject(erro);
+        } else {
+          pet.imagem = novoCaminho;
+          return repositorio.adiciona(pet).then((resultados) => {
+            resolve(resultados);
+          });
+        }
+      });
     });
   }
 }
-
 module.exports = new Pet();

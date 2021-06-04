@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-module.exports = (caminho, nomeDoArquivo, callbackImagemCriada) => {
+module.exports = (nomeDoArquivo, caminho, callbackImagemCriada) => {
   const extensoesValidas = ["jpg", "png", "jpeg"];
 
   //identifica a extensão do arquivo com o path
@@ -17,12 +17,9 @@ module.exports = (caminho, nomeDoArquivo, callbackImagemCriada) => {
     fs.createReadStream(caminho)
       .pipe(fs.createWriteStream(novoCaminho))
       .on("finish", () => callbackImagemCriada(false, novoCaminho)); //false é pq não tem erro
-
   } else {
-    const erro = 'A extensão do arquivo é inválida!'
-    console.log(erro)
-    callbackImagemCriada(erro)
+    const erro = "A extensão do arquivo é inválida!";
+    console.log(erro);
+    callbackImagemCriada(erro);
   }
 };
-
-//quando eu passo uma extensão que não existe, visualizo o erro, porém aparece um registro da imagem no diretório de destino que eu coloquei

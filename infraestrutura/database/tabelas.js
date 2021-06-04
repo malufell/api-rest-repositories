@@ -1,14 +1,12 @@
 class Tabelas {
-  //init é o método que vai inicializar e permitir trabalhar com essa classe(?)
   init(conexao) {
     this.conexao = conexao;
-
-    //chama o método que cria a tabela
     this.criarAtendimento();
     this.criarPets();
   }
 
-  //método com a criação da tabela. o .query espera um comando do SQL e depois uma função com o que será executado quando a consulta for realizada
+  //método com a criação da tabela. 
+  // o .query espera um comando do SQL e depois uma função com o que será executado quando a consulta for realizada
   criarAtendimento() {
     const sql = `
       CREATE TABLE IF NOT EXISTS Atendimentos (
@@ -52,5 +50,4 @@ class Tabelas {
 
 }
 
-//exportando pra usar no index para criar as tabelas quando o servidor for iniciado
 module.exports = new Tabelas();
